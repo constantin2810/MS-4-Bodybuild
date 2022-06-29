@@ -3,12 +3,35 @@
   // Hover to view descriptions of existing attributes.
   "version": "0.2.0",
   "configurations": [
-      {
-            "name": "Python: Current File (Integrated Terminal)",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "internalConsole"
-        }
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "MS-4-Bodybuild:manage.main (python3.8)",
+      "invokeTarget": {
+        "target": "code",
+        "projectRoot": "${workspaceFolder}/",
+        "lambdaHandler": "manage.main"
+      },
+      "lambda": {
+        "runtime": "python3.8",
+        "payload": {},
+        "environmentVariables": {}
+      }
+    },
+    {
+      "name": "Python: Current File (Integrated Terminal)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "internalConsole"
+    }
   ]
 }
